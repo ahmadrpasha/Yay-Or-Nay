@@ -1,0 +1,47 @@
+<% layout('layouts/boilerplate') %>
+    <h1>All Reviews</h1>
+    <!-- <div>
+        <a href="/campgrounds/new">Add Review</a>
+    </div> -->
+    <% for (let review of reviews) { %>
+        <div class="card mb-3"></div>
+        <div class="row">
+            <!-- Just include review ids -->
+            <div class="col-md-8">
+                <div class="card-body bg-light">
+                    <p class="card-text">
+                        Review ID: <%= review.id %>
+                    </p>
+                    <% if (review.yay === true) { %>
+                        <p class="card-text">
+                            Yay: <%= review.yay %>
+                        </p>
+                        <p class="card-text">
+                            Clean: <%= review.clean %>
+                        </p>
+                        <p class="card-text">
+                            Good Service: <%= review.goodService %>
+                        </p> 
+                    <% } else { %>
+                    
+                        <p class="card-text">
+                            Nay: <%= review.nay %>
+                        </p>
+                    
+                        <p class="card-text">
+                            Unclean: <%= review.unclean %>
+                        </p>
+                    
+                        <p class="card-text">
+                            Bad Service: <%= review.badService %>
+                        </p>
+                    <% } %>
+                    <p class="card-text">
+                        Details: <%= review.details %>
+                    </p>
+
+                    <a class="btn btn-primary" href="/reviews/<%= review._id %>">View</a>
+                </div>
+            </div>
+        </div>
+        <% } %>
